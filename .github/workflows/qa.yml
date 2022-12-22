@@ -2,7 +2,7 @@ name: qa
 
 on:
   workflow_run:
-    workflows: [test]
+    workflows: [build]
     branches: [feature/**]
     types:
       - completed

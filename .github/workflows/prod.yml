@@ -2,7 +2,7 @@ name: prod
 
 on:
   workflow_run:
-    workflows: [qa]
+    workflows: [build]
     branches: [feature/**]
     types:
       - completed
