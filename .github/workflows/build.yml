@@ -1,0 +1,17 @@
+name: build
+
+on:
+  push:
+    branches-ignore:
+      - main
+  workflow_dispatch:
+  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+    - name: build docker image, tag, build and push release image
+      shell: bash
+      run: | echo "building";sleep 15

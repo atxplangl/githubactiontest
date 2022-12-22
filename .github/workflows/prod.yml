@@ -1,0 +1,21 @@
+name: prod
+
+on:
+  push:
+    branches-ignore:
+      - main
+  workflow_dispatch:
+  workflow_run:
+    workflows: [qa]
+    branches: [main]
+    types:
+      - completed
+
+jobs:
+  prod:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+    - name: build docker image, tag, build and push release image
+      shell: bash
+      run: | echo "prod testing";sleep 15
