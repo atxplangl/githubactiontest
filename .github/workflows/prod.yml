@@ -1,10 +1,8 @@
 name: prod
 
 on:
-  push:
-  workflow_dispatch:
   workflow_run:
-    workflows: [qa]
+    workflows: [build]
     branches: [feature/**]
     types:
       - completed

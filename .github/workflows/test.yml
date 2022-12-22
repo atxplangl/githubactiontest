@@ -1,10 +1,8 @@
 name: test
 
 on:
-  push:
-  workflow_dispatch:
   workflow_run:
-    workflows: [build]
+    workflows: [qa]
     branches: [feature/**]
     types:
       - completed
