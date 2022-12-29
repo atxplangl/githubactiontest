@@ -16,4 +16,5 @@ jobs:
           echo ${{ github.event.client_payload.ref }}
           echo ${{ github.event.client_payload.sha }}
           env
+          cat /home/runner/work/_temp/_github_workflow/event.json
 
