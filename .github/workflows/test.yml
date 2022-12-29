@@ -2,7 +2,7 @@ name: test
 
 on:
   repository_dispatch:
-    types: [test-event]
+    types: [build-event]
 
 jobs:
   test:
@@ -15,19 +15,3 @@ jobs:
           echo ${{ github.event.client_payload.version }}
           echo ${{ github.event.client_payload.ref }}
           echo ${{ github.event.client_payload.sha }}
-
-      - name: set env vars for repository registory
-        run: |
-            echo "temp_github_version=$(echo ${{ github.event.client_payload.version }})" >> $GITHUB_ENV
-            echo "temp_github_sha=$(echo ${{ github.event.client_payload.sha }})" >> $GITHUB_ENV
-            echo "temp_github_ref=$(echo ${{ github.event.client_payload.ref }})" >> $GITHUB_ENV
-      - name: repository dispatch
-        uses: atxplangl/action-repository-dispatch-caller@main
-        with:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          REPO_NAME: "githubactiontest"
-          ORG_NAME: "atxplangl"
-          EVENT: "prod-event"
-          VERSION: "${{ env.temp_github_version }}"
-          GITHUB_SHA: "${{ env.temp_github_sha }}"
-          GITHUB_REF: "${{ env.temp_github_ref }}"
