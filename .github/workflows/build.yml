@@ -17,5 +17,8 @@ jobs:
           ORG_NAME: "atxplangl"
           EVENT: "build-event"
           VERSION: "1.2.0"
+          GITHUB_SHA: "${{ github.sha }}"
+          GITHUB_REF: "${{ github.ref }}"
+
 
 
