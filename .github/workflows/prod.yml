@@ -1,7 +1,8 @@
 name: prod
 
 on:
-  workflow_dispatch:
+  repository_dispatch:
+    types: [prod-event]
 
 jobs:
   prod:
