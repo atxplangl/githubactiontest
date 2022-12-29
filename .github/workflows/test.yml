@@ -22,6 +22,6 @@ jobs:
           REPO_NAME: "githubactiontest"
           ORG_NAME: "atxplangl"
           EVENT: "prod-event"
-          VERSION: "1.2.0"
+          VERSION: "1.3.0"
           GITHUB_SHA: "${{ github.sha }}"
           GITHUB_REF: "${{ github.ref }}"
