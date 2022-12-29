@@ -12,7 +12,7 @@ jobs:
         with:
           ref: ${{ github.event.client_payload.ref }}
       - name: set env vars for repository registory
-      - run: |
+        run: |
           echo "temp_github_version=$(echo ${{ github.event.client_payload.version }}" >> $GITHUB_ENV
           echo "temp_github_sha=$(echo ${{ github.event.client_payload.ref }}" >> $GITHUB_ENV
           echo "temp_github_ref=$(echo ${{ github.event.client_payload.sha }}" >> $GITHUB_ENV
