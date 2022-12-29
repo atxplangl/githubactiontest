@@ -15,3 +15,13 @@ jobs:
           echo ${{ github.event.client_payload.version }}
           echo ${{ github.event.client_payload.ref }}
           echo ${{ github.event.client_payload.sha }}
+      - name: repository dispatch
+        uses: atxplangl/action-repository-dispatch-caller@main
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          REPO_NAME: "githubactiontest"
+          ORG_NAME: "atxplangl"
+          EVENT: "prod-event"
+          VERSION: "1.2.0"
+          GITHUB_SHA: "${{ github.sha }}"
+          GITHUB_REF: "${{ github.ref }}"
