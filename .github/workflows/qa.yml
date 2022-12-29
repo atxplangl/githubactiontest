@@ -15,4 +15,5 @@ jobs:
           echo ${{ github.event.client_payload.version }}
           echo ${{ github.event.client_payload.ref }}
           echo ${{ github.event.client_payload.sha }}
+          env
 
