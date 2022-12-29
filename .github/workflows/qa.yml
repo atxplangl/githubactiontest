@@ -2,7 +2,7 @@ name: qa
 
 on:
   repository_dispatch:
-    types: [qa-event]
+    types: [build-event]
 
 jobs:
   qa:
@@ -15,14 +15,4 @@ jobs:
           echo ${{ github.event.client_payload.version }}
           echo ${{ github.event.client_payload.ref }}
           echo ${{ github.event.client_payload.sha }}
-      - name: repository dispatch
-        uses: atxplangl/action-repository-dispatch-caller@main
-        with:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          REPO_NAME: "githubactiontest"
-          ORG_NAME: "atxplangl"
-          EVENT: "test-event"
-          VERSION: "${{ github.event.client_payload.version }}"
-          GITHUB_SHA: "${{ github.event.client_payload.sha }}"
-          GITHUB_REF: "${{ github.event.client_payload.ref }}"
 
