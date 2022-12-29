@@ -1,9 +1,8 @@
 name: qa
 
 on:
-  workflow_dispatch:
   repository_dispatch:
-    types: [ build-event ]
+    types: [build-event]
 
 jobs:
   qa:
