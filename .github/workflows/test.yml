@@ -23,5 +23,5 @@ jobs:
           ORG_NAME: "atxplangl"
           EVENT: "prod-event"
           VERSION: "${{ github.event.client_payload.version }}"
-          GITHUB_SHA: "${{ github.sha }}"
-          GITHUB_REF: "${{ github.ref }}"
+          GITHUB_SHA: "${{ github.event.client_payload.sha }}"
+          GITHUB_REF: "${{ github.event.client_payload.ref }}"
