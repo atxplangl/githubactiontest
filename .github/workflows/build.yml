@@ -14,7 +14,7 @@ jobs:
       - name: repository dispatch
         uses: atxplangl/action-repository-dispatch-caller@main
         with:
-          token: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           REPO_NAME: "githubactiontest"
           ORG_NAME: "atxplangl"
           EVENT: build-event
