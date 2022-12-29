@@ -1,17 +1,18 @@
 name: prod
 
 on:
-  workflow_run:
-    workflows: [build]
-    branches: [feature/**]
-    types:
-      - completed
+  repository_dispatch:
+    types: [prod-event]
 
 jobs:
   prod:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: build docker image, tag, build and push release image
-        shell: bash
-        run: echo "prod testing";sleep 15
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.client_payload.ref }}
+      - run: |
+          echo ${{ github.event.client_payload.version }}
+          echo ${{ github.event.client_payload.ref }}
+          echo ${{ github.event.client_payload.sha }}

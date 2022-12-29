@@ -15,7 +15,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           REPO_NAME: "githubactiontest"
           ORG_NAME: "atxplangl"
-          EVENT: "build-event"
-          VERSION: "1.1.0"
+          EVENT: "qa-event"
+          VERSION: "1.2.0"
+          GITHUB_SHA: "${{ github.sha }}"
+          GITHUB_REF: "${{ github.ref }}"
+
 
 
