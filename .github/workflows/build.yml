@@ -12,9 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: build docker image, tag, build and push release image
-        shell: bash
-        run: cat "README.md";sleep 15
       - name: repository dispatch
         uses: atxplangl/action-repository-dispatch-caller@main
         with:
