@@ -16,6 +16,6 @@ jobs:
           REPO_NAME: "githubactiontest"
           ORG_NAME: "atxplangl"
           EVENT: "build-event"
-          VERSION: "1.1.0"
+          VERSION: "1.2.0"
 
 
