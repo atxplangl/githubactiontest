@@ -3,7 +3,7 @@ name: build
 on:
   push:
     branches:
-      - feature/**
+      - main
   workflow_dispatch:
   
 
@@ -11,7 +11,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: repository dispatch
+        uses: atxplangl/action-repository-dispatch-caller@main
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          REPO_NAME: "githubactiontest"
+          ORG_NAME: "atxplangl"
+          EVENT: build-event
+          CLIENT_PAYLOAD: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "version": "1.1.0"}'
       - uses: actions/checkout@v3
       - name: build docker image, tag, build and push release image
         shell: bash
         run: cat "README.md";sleep 15
+
