@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        run: env
       - name: repository dispatch
         uses: atxplangl/action-repository-dispatch-caller@main
         with:
