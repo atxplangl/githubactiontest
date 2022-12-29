@@ -1,17 +1,11 @@
 name: prod
 
 on:
-  repository_dispatch:
-    types: [prod-event]
+  workflow_dispatch:
 
 jobs:
   prod:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.client_payload.ref }}
-      - run: |
-          echo ${{ github.event.client_payload.version }}
-          echo ${{ github.event.client_payload.ref }}
-          echo ${{ github.event.client_payload.sha }}
+
